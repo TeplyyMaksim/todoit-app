@@ -1,0 +1,42 @@
+<div class="row">
+
+  <!-- Find TODOIT -->
+  <div class="col-sm-6">
+    <div class="panel panel-default text-center">
+      <div class="panel-heading text-center">
+        <h2>Find TODOIT</h2>
+      </div>
+      <div class="panel-body">
+        <div class="form-group">
+          <label>TODOIT id:</label>
+          {{input type="text" value=id class="form-control" placeholder="No spaces allowed"}}
+          <button disabled={{unless isValidId true}} {{action 'findTodoit'}} class="btn btn-primary btn-lg create-button">Find</button>
+        </div>
+      </div>
+      {{#if message}}
+      <div class="alert alert-warning">
+        <strong>Wrong</strong> TODOIT id.
+      </div>
+      {{/if}}
+    </div>
+  </div>
+  <!-- /Find TODOIT -->
+
+  <!-- Create TODOIT -->
+  <div class="col-sm-6">
+    <div class="panel panel-default text-center">
+      <div class="panel-heading">
+        <h2>Create TODOIT</h2>
+      </div>
+      <div class="panel-body">
+        <div class="form-group">
+          <label>Input name:</label>
+          {{input type="text" value=name class="form-control" placeholder="Name must be single latin word/number without spaces"}}
+          <button disabled={{unless isValidCreate true}} {{action 'saveTodoit'}} class="btn btn-primary btn-lg create-button">Create TODOIT</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /Create TODOIT -->
+
+</div>

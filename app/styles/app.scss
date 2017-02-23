@@ -1,0 +1,77 @@
+@import "bootstrap";
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+  background: url('https://sc-cdn.scaleengine.net/i/06587d4bc11e1abc4ea3de8f139c5a581.jpg');
+}
+
+/* Basic */
+.jumbotron {
+  margin-bottom: 20px;
+  background: url('https://sc-cdn.scaleengine.net/i/23ce40e017bc17add395ecd9ca85f3f5.jpg');
+}
+.panel-heading{
+  background: url('https://sc-cdn.scaleengine.net/i/23ce40e017bc17add395ecd9ca85f3f5.jpg');
+}
+.well{
+  background: url('https://sc-cdn.scaleengine.net/i/23ce40e017bc17add395ecd9ca85f3f5.jpg');
+}
+/* /Basic */ 
+
+/* Task-list */
+.create-button{
+  margin-top: 10px;
+}
+.strikethrough{
+  text-decoration: line-through;
+}
+.task-state-changer{
+  margin-top: 20px;
+}
+.task-deleter{
+  margin-top: 20px;
+}
+p.task-name{
+  margin-top: 20px;
+  padding: 10px;
+  font-size: 18px;
+  word-wrap: break-word;
+}
+.task-name-editing{
+  margin-top: 20px;
+  padding: 10px 0;
+  font-size: 18px;
+}
+.no-task-alert{
+  margin-top: 20px;
+}
+/* /Task-list */
+
+/* Statistic label (obiously) */
+.statistic-label{
+  display: inline-block;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+/* /Statistic label */
+
+/* Sticky footer */
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background: url('https://sc-cdn.scaleengine.net/i/23ce40e017bc17add395ecd9ca85f3f5.jpg');
+
+  .footer-text{
+    margin-top: 20px;
+    font-size: 20px;
+  }
+
+}
+/* /Sticky footer */

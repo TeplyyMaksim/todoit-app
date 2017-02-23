@@ -1,0 +1,73 @@
+<div class="row">
+  <div class="well well-lg text-center col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3">
+    <!-- Todoit name -->
+    <h2>{{model.name}}</h2>
+    <!-- /Todoit name -->
+
+    <!-- Statistic -->
+    <h3> <span class="label label-primary statistic-label">Total tasks {{model.allTasks}}</span> <span class="label label-success statistic-label"> Completed tasks {{model.completedTasks}}</span> <span class="label label-warning statistic-label">Active tasks {{model.activeTasks}}</span></h3>
+    <!-- /Statistic -->
+
+    <!-- Task create -->
+    <div class="row create-task">
+      <div class="col-xs-9">
+        {{input type="text" value=task class="form-control" placeholder="Task name. You can change it later by clicking on its name"}}
+      </div>
+      <div class="col-xs-3">
+        <button class="btn btn-primary" disabled={{unless newTaskIsValid true}} {{action 'addNewTask'}}>Create <span class="glyphicon glyphicon-plus"></span></button>
+      </div>
+    </div>
+    <!-- /Task create -->
+
+    <!-- Task list -->
+    {{#each model.tasks as |task|}}
+      <div class="row">
+        <!-- Change state -->
+        <div class="col-xs-3">
+          <button class="btn btn-lg {{if task.completed "btn-warning" "btn-success"}} task-state-changer" {{action 'changeState' task}}>
+
+            {{#if task.completed}}
+              <span class="glyphicon glyphicon-remove"></span>
+            {{else}}
+              <span class="glyphicon glyphicon-ok"></span>
+            {{/if}}
+          </button>
+        </div>
+
+        <!-- Text -->
+        <div class="col-xs-6">
+
+          {{#if task.isEditing}}
+            <form {{action 'saveTaskName' task on='submit'}} class="form-inline task-name-editing">
+              <div class="input-group">
+                {{input value=task.name class="form-control"}}
+                <div class="input-group-btn">
+                  <button type="submit" class="btn btn-success" disabled={{task.isNotValid}}><span class="glyphicon glyphicon-floppy-saved"></span></button>
+                  <button class="btn btn-danger" {{action 'cancelTaskEdit' task}}><span class="glyphicon glyphicon-floppy-remove"></span></button>
+                </div>
+              </div>
+            </form>
+          {{else}}
+            <p class="{{if task.completed "strikethrough"}} task-name" {{action 'editTaskName' task}}>{{task.name}}</p>
+          {{/if}}
+
+        </div>
+
+        <!-- Delete -->
+        <div class="col-xs-3">
+          <button class="btn btn-lg btn-danger task-deleter" {{action 'deleteTask' task}}>
+            <span class="glyphicon glyphicon-trash"></span>
+          </button>
+        </div>
+      </div>
+    <!-- Initial message for user -->
+    <!-- It'll show if there are no tasks -->
+    {{else}}
+    <div class="alert alert-info no-task-alert">
+      Your personal id - <strong>{{model.id}}</strong><br>
+      You can share this TODOIT by link or current URL directly
+    </div>
+    {{/each}}
+    <!-- /Task list -->
+  </div>
+</div>
